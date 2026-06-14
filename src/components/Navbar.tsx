@@ -32,7 +32,7 @@ export function Navbar() {
         <Link to="/" className="pointer-events-auto">
           <img 
             src="/screen.png" 
-            alt="Logo" 
+            alt="" 
             className="w-12 h-12 object-contain hover:scale-110 transition-transform drop-shadow-lg"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
