@@ -47,7 +47,7 @@ function JellyLetter({ letter }: { letter: string }) {
         if (!isPlaying) rubberBand();
       }}
       onAnimationComplete={() => setIsPlaying(false)}
-      className="inline-block origin-bottom transition-colors hover:text-brand-2 cursor-default font-display drop-shadow-[2px_2px_0px_rgba(227,83,54,0.3)] hover:drop-shadow-[4px_4px_0px_rgba(255,117,24,0.5)]"
+      className="inline-block origin-bottom transition-colors hover:text-brand-2 cursor-default font-display drop-shadow-[0_0_8px_rgba(255,117,24,0.8)] md:drop-shadow-[2px_2px_0px_rgba(227,83,54,0.3)] md:hover:drop-shadow-[4px_4px_0px_rgba(255,117,24,0.5)]"
     >
       {letter}
     </motion.span>

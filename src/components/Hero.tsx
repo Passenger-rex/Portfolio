@@ -20,7 +20,7 @@ export function Hero() {
           </span>
           <h1 className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[1.1] mb-6 md:mb-8 flex flex-col items-center md:items-start gap-1">
             <span className="flex flex-wrap justify-center md:justify-start gap-1"><JellyText text="JOHN-TOBI" /></span>
-            <span className="mt-1 md:mt-2 flex flex-wrap justify-center md:justify-start gap-1"><JellyText text="EKUNDAYO." className="clip-text" /></span>
+            <span className="mt-1 md:mt-2 text-brand-2 md:text-brand-1 flex flex-wrap justify-center md:justify-start gap-1"><JellyText text="EKUNDAYO." /></span>
           </h1>
         </motion.div>
 
@@ -37,7 +37,7 @@ export function Hero() {
 
           <Link 
             to="/projects" 
-            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base bg-gradient-to-r from-brand-1 to-brand-2 text-white border border-brand-3/50 shadow-[0_0_15px_rgba(227,83,54,0.4)] rounded-full font-semibold hover:shadow-[0_0_25px_rgba(255,117,24,0.7)] transition-all duration-300 group relative z-20"
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base bg-gradient-to-r from-brand-1 to-brand-2 text-white border border-brand-3/50 shadow-[0_0_20px_rgba(255,117,24,0.6)] md:shadow-[0_0_15px_rgba(227,83,54,0.4)] rounded-full font-semibold md:hover:shadow-[0_0_25px_rgba(255,117,24,0.7)] transition-all duration-300 group relative z-20"
           >
             Selected Works
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

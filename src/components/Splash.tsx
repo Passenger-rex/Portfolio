@@ -33,8 +33,10 @@ export function Splash({ onComplete }: { onComplete: () => void }) {
         <img 
           src="/screen.png" 
           alt="" 
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
           onLoad={() => setIsLoaded(true)}
-          className={`w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(227,83,54,0.4)] transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(227,83,54,0.4)] transition-opacity duration-300 pointer-events-none select-none ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = 'none';
           }}

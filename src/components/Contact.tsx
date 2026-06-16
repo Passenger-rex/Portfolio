@@ -12,8 +12,7 @@ export function Contact() {
     setStatus("loading");
     
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "";
-      const res = await fetch(`${apiUrl}/api/contact`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -43,7 +42,7 @@ export function Contact() {
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter mb-6 md:mb-8 leading-[1.1] flex flex-col items-center lg:items-start">
             <span className="flex flex-wrap justify-center lg:justify-start gap-1"><JellyText text="LET'S" /></span>
-            <span className="clip-text flex flex-wrap justify-center lg:justify-start gap-1 mt-1 md:mt-2"><JellyText text="COLLABORATE." /></span>
+            <span className="text-brand-2 md:text-brand-1 flex flex-wrap justify-center lg:justify-start gap-1 mt-1 md:mt-2"><JellyText text="COLLABORATE." /></span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-md mx-auto lg:mx-0">
             Ready to build something extraordinary? Drop me a message and let's discuss your next project.

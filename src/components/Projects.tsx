@@ -38,7 +38,7 @@ export function Projects() {
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 flex flex-col md:flex-row gap-2 md:gap-[0.5em] items-center">
             <span className="flex flex-wrap justify-center gap-1"><JellyText text="FEATURED" /></span>
-            <span className="clip-text flex flex-wrap justify-center gap-1"><JellyText text="PROJECTS" /></span>
+            <span className="text-brand-2 md:text-brand-1 flex flex-wrap justify-center gap-1"><JellyText text="PROJECTS" /></span>
           </h2>
           <div className="w-full h-[1px] bg-white/10 mt-6 md:mt-8" />
         </motion.div>
@@ -50,20 +50,20 @@ export function Projects() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="group relative border border-white/10 hover:border-brand-2 p-6 sm:p-8 md:p-12 transition-all rounded-3xl overflow-hidden bg-secondary"
+              className="group relative border border-brand-2/50 md:border-white/10 hover:border-brand-2 p-6 sm:p-8 md:p-12 transition-all rounded-3xl overflow-hidden bg-secondary shadow-[0_0_30px_rgba(255,117,24,0.15)] md:shadow-none hover:shadow-[0_0_30px_rgba(255,117,24,0.2)]"
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-1/0 via-brand-2/0 to-brand-3/0 group-hover:from-brand-1/10 group-hover:via-brand-2/5 group-hover:to-brand-3/10 transition-all duration-700" />
+              {/* Hover glow / Static glow on mobile */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-1/5 via-brand-2/5 to-brand-3/5 group-hover:from-brand-1/10 group-hover:via-brand-2/5 group-hover:to-brand-3/10 transition-all duration-700" />
               
               <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div className="max-w-2xl flex flex-col md:flex-row md:items-center gap-6">
                   {project.logo && (
                     <a href={project.site} target="_blank" rel="noopener noreferrer" className="shrink-0 flex items-center justify-center w-20 h-20 bg-transparent rounded-2xl border border-white/10 p-2 transition-transform hover:scale-105 hover:border-brand-1">
-                      <img src={project.logo} alt={`${project.title} logo`} className="w-full h-full object-contain drop-shadow-md" />
+                      <img src={project.logo} alt="" draggable={false} onContextMenu={(e) => e.preventDefault()} className="w-full h-full object-contain drop-shadow-md pointer-events-none select-none" />
                     </a>
                   )}
                   <div>
-                    <h3 className="font-display text-3xl md:text-5xl font-bold mb-4 group-hover:text-brand-2 transition-colors">
+                    <h3 className="font-display text-3xl md:text-5xl font-bold mb-4 text-brand-2 md:text-white group-hover:text-brand-2 transition-colors">
                       <a href={project.site} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-brand-2/50 underline-offset-8">
                         {project.title}
                       </a>

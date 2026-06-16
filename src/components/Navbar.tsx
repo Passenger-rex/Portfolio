@@ -33,7 +33,9 @@ export function Navbar() {
           <img 
             src="/screen.png" 
             alt="" 
-            className="w-12 h-12 object-contain hover:scale-110 transition-transform drop-shadow-lg"
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            className="w-12 h-12 object-contain hover:scale-110 transition-transform drop-shadow-lg pointer-events-none select-none"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
             }}

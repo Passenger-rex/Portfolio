@@ -27,8 +27,10 @@ export function About() {
         >
             <img 
               src="/veck.png" 
-              alt="John-Tobi Visual" 
-              className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain drop-shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 mb-8 md:mb-12 mix-blend-screen opacity-90"
+              alt="" 
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain drop-shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 mb-8 md:mb-12 mix-blend-screen opacity-90 pointer-events-none select-none"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}

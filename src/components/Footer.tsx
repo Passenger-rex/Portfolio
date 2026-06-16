@@ -16,8 +16,10 @@ export function Footer() {
         >
           <img 
             src="/screen.png" 
-            alt="Logo" 
-            className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-500" 
+            alt="" 
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            className="w-20 h-20 object-contain hover:scale-110 transition-transform duration-500 pointer-events-none select-none" 
           />
 
           <div className="flex items-center gap-6">
