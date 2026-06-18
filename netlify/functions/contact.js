@@ -1,6 +1,6 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   // Only allow POST request
   if (event.httpMethod !== "POST") {
     return {

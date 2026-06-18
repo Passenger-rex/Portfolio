@@ -20,13 +20,28 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
       
-      const data = await res.json();
+      let data: any = {};
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        console.warn("Received non-JSON response from mail server:", text);
+        data = { error: text || `Server responded with status code ${res.status}` };
+      }
       
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        if (res.status === 500 && data.error && data.error.includes("configuration is incomplete")) {
+        const isConfigError = res.status === 500 && data.error && (
+          data.error.toLowerCase().includes("configuration") || 
+          data.error.toLowerCase().includes("missing") ||
+          data.error.toLowerCase().includes("credentials") ||
+          data.error.toLowerCase().includes("incomplete")
+        );
+        
+        if (isConfigError) {
           setStatus("config_error");
           setErrorMessage(data.error);
         } else {
@@ -34,10 +49,10 @@ export function Contact() {
           setErrorMessage(data.error || "Failed to send message. Please try again.");
         }
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to send message:", error);
       setStatus("error");
-      setErrorMessage("Could not connect to the mail server. Please try again later.");
+      setErrorMessage(error?.message || "Could not connect to the mail server. Please try again later.");
     }
   };
 
@@ -126,11 +141,37 @@ export function Contact() {
               )}
             </button>
             {status === "error" && (
-              <p className="text-red-500 text-sm mt-2">{errorMessage || "Failed to send message. Please try again."}</p>
+              <div className="mt-4 p-4 border border-red-500/20 bg-red-500/10 rounded-2xl flex flex-col gap-2">
+                <p className="text-red-400 text-sm font-medium">{errorMessage || "Failed to send message. Please try again."}</p>
+                <p className="text-xs text-gray-400 font-light">
+                  If the issue persists, feel free to send an email directly to{" "}
+                  <a href="mailto:johntobismart@gmail.com" className="text-brand-1 hover:underline font-mono">
+                    johntobismart@gmail.com
+                  </a>
+                </p>
+              </div>
             )}
             {status === "config_error" && (
-              <p className="text-red-500 text-sm mt-2">{errorMessage || "Email server configuration is incomplete in the environment variables (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS)."}</p>
+              <div className="mt-4 p-4 border border-orange-500/20 bg-orange-500/10 rounded-2xl flex flex-col gap-2">
+                <p className="text-orange-400 text-sm font-medium">{errorMessage || "Email server configuration is incomplete."}</p>
+                <div className="text-xs text-gray-400 font-light space-y-1">
+                  <p>Please make sure the following environment variables are correctly configured in your hosting dashboard (e.g. Netlify/Vercel/Cloud Run):</p>
+                  <ul className="list-disc list-inside font-mono text-[11px] text-gray-300">
+                    <li>SMTP_HOST</li>
+                    <li>SMTP_PORT</li>
+                    <li>SMTP_USER</li>
+                    <li>SMTP_PASS</li>
+                  </ul>
+                  <p className="mt-2 text-xs">
+                    Or reach out directly at{" "}
+                    <a href="mailto:johntobismart@gmail.com" className="text-brand-1 hover:underline font-mono">
+                      johntobismart@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
             )}
+
           </form>
         </motion.div>
       </div>
