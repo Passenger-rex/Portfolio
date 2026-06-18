@@ -85,7 +85,7 @@ export function Footer() {
                 <a href="https://dribbble.com/Passenger-rex" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#EA4C89] hover:border-[#EA4C89] transition-all group">
                   <Dribbble size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <a href="https://www.behance.net/johntoekunday" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#1769FF] hover:border-[#1769FF] transition-all group">
+                <a href="https://www.behance.net/passengerrex" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#1769FF] hover:border-[#1769FF] transition-all group">
                   <BehanceIcon size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="https://www.tumblr.com/johnnydrops" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#36465D] hover:border-[#36465D] transition-all group">

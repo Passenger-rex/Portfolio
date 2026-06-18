@@ -1,15 +1,17 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { JellyText } from "./JellyText";
-import { Code2, Database, Layout, Palette, Server, Zap } from "lucide-react";
+import { Code2, Database, Palette, Server, Zap, Atom, Github, Cloud } from "lucide-react";
 
 const skills = [
-  { name: "React & Next.js", icon: <Layout size={20} /> },
+  { name: "React & Next.js", icon: <Atom size={20} /> },
   { name: "TypeScript", icon: <Code2 size={20} /> },
-  { name: "Node.js", icon: <Server size={20} /> },
-  { name: "PostgreSQL", icon: <Database size={20} /> },
+  { name: "Node.js & Express", icon: <Server size={20} /> },
+  { name: "PostgreSQL & SQL", icon: <Database size={20} /> },
   { name: "UI/UX Design", icon: <Palette size={20} /> },
   { name: "Tailwind CSS", icon: <Zap size={20} /> },
+  { name: "Git & GitHub", icon: <Github size={20} /> },
+  { name: "Cloud & Netlify", icon: <Cloud size={20} /> },
 ];
 
 const experience = [
