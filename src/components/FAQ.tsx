@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { transition } from "three/src/nodes/TSL.js";
 
 const faqs = [
   {

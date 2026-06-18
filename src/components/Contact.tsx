@@ -5,11 +5,13 @@ import { JellyText } from "./JellyText";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "config_error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage("");
     
     try {
       const res = await fetch("/api/contact", {
@@ -18,14 +20,24 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
       
+      const data = await res.json();
+      
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("error");
+        if (res.status === 500 && data.error && data.error.includes("configuration is incomplete")) {
+          setStatus("config_error");
+          setErrorMessage(data.error);
+        } else {
+          setStatus("error");
+          setErrorMessage(data.error || "Failed to send message. Please try again.");
+        }
       }
-    } catch {
+    } catch (error) {
+      console.error("Failed to send message:", error);
       setStatus("error");
+      setErrorMessage("Could not connect to the mail server. Please try again later.");
     }
   };
 
@@ -114,7 +126,10 @@ export function Contact() {
               )}
             </button>
             {status === "error" && (
-              <p className="text-red-500 text-sm mt-2">Failed to send message. Please try again.</p>
+              <p className="text-red-500 text-sm mt-2">{errorMessage || "Failed to send message. Please try again."}</p>
+            )}
+            {status === "config_error" && (
+              <p className="text-red-500 text-sm mt-2">{errorMessage || "Email server configuration is incomplete in the environment variables (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS)."}</p>
             )}
           </form>
         </motion.div>
