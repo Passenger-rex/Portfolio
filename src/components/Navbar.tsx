@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
@@ -59,7 +60,7 @@ export function Navbar() {
                 hidden: { y: -100, opacity: 0, scale: 0.95 }
               }}
               animate={hidden ? "hidden" : "visible"}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="pointer-events-auto bg-secondary/50 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 hidden md:flex items-center gap-8 shadow-2xl"
             >
           {navItems.map((item) => (

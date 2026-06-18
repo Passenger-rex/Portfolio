@@ -7,7 +7,7 @@ export function Splash({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 2500);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -15,7 +15,7 @@ export function Splash({ onComplete }: { onComplete: () => void }) {
     <motion.div
       key="splash"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a]"
     >
       <motion.div
@@ -25,8 +25,8 @@ export function Splash({ onComplete }: { onComplete: () => void }) {
           rotate: [-20, 10, -5, 0] 
         } : { opacity: 0 }}
         transition={{ 
-          duration: 1.8,
-          ease: "easeInOut"
+          duration: 1.2,
+          ease: "easeOut"
         }}
         className="flex justify-center"
       >

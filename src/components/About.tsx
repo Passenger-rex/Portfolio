@@ -1,89 +1,165 @@
 import { motion } from "motion/react";
-import { Code2, Server, Database, Cloud, Github as GitIcon, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 import { JellyText } from "./JellyText";
+import { Code2, Database, Layout, Palette, Server, Zap } from "lucide-react";
 
 const skills = [
-  { name: "TypeScript", icon: Code2 },
-  { name: "Node.js", icon: Server },
-  { name: "Express", icon: Server },
-  { name: "Firebase", icon: Database },
-  { name: "GitHub", icon: GitIcon },
-  { name: "Netlify", icon: Cloud },
-  { name: "React", icon: Globe }
+  { name: "React & Next.js", icon: <Layout size={20} /> },
+  { name: "TypeScript", icon: <Code2 size={20} /> },
+  { name: "Node.js", icon: <Server size={20} /> },
+  { name: "PostgreSQL", icon: <Database size={20} /> },
+  { name: "UI/UX Design", icon: <Palette size={20} /> },
+  { name: "Tailwind CSS", icon: <Zap size={20} /> },
+];
+
+const experience = [
+  {
+    role: "Freelance Senior Developer",
+    company: "Self-Employed",
+    period: "2021 - Present",
+    description: "Designing and building scalable web applications and digital experiences for global clients."
+  },
+  {
+    role: "Frontend Engineer",
+    company: "Creative Digital Agency",
+    period: "2018 - 2021",
+    description: "Led the development of modern web interfaces using React, focusing on performance and accessible design."
+  }
 ];
 
 export function About() {
   return (
-    <section id="about" className="pt-24 md:pt-40 pb-20 md:pb-24 px-6 md:px-12 relative overflow-hidden z-10 min-h-[90vh]">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-2/10 rounded-full blur-[80px] md:blur-[120px] -z-10 pointer-events-none" />
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-secondary w-full" id="about">
+      {/* Background blobs */}
+      <div className="absolute top-[20%] right-0 w-[500px] h-[500px] bg-brand-1/5 rounded-full blur-[120px] -z-0 pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-2/5 rounded-full blur-[150px] -z-0 pointer-events-none mix-blend-screen" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10 w-full pt-12 md:pt-20">
+        
+        {/* Header content */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24 flex flex-col items-center text-center"
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="mb-16 lg:mb-24 flex flex-col items-start text-left"
         >
-            <img 
-              src="/veck.png" 
-              alt="" 
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain drop-shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 mb-8 md:mb-12 mix-blend-screen opacity-90 pointer-events-none select-none"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-          <h2 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 md:mb-8 leading-tight flex flex-col items-center gap-2 md:gap-4">
-            <span className="flex flex-wrap justify-center gap-2"><JellyText text="ENGINEERING" /></span>
-            <span className="flex flex-wrap justify-center gap-2 md:gap-4 mt-1 md:mt-2"><JellyText text="WITH" /> <span className="text-gray-500"><JellyText text="PURPOSE." /></span></span>
-          </h2>
-          <div className="w-full h-[1px] bg-white/10 mt-6 md:mt-12 max-w-3xl" />
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight flex flex-row gap-2 md:gap-4 items-center text-white mb-6">
+            <span className="flex"><JellyText text="ABOUT" /></span>
+            <span className="text-brand-1 flex"><JellyText text="ME" /></span>
+          </h1>
+          <div className="w-full h-[1px] bg-white/10" />
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12 md:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch mb-24">
+          {/* Image/Avatar Column */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex-1 space-y-6 md:space-y-8 text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed font-light text-center lg:text-left"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="lg:col-span-4 relative flex items-center"
           >
-            <p>
-              I am John-Tobi Ekundayo, a dedicated Full-Stack Web Developer. I specialize in building highly scalable, performance-driven web applications that bridge complex backend logic with elegant frontend interfaces.
-            </p>
-            <p>
-              My approach focuses on solid architectural foundations, type safety, and delivering exceptional user experiences across the entire stack.
-            </p>
+            <div className="aspect-square sm:aspect-[4/5] w-full rounded-[2rem] overflow-hidden border border-white/10 bg-secondary/50 relative group flex items-center justify-center p-8">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-1/10 via-transparent to-brand-2/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+              <img 
+                src="/veck.png" 
+                alt="John-Tobi Ekundayo" 
+                className="w-32 h-32 sm:w-48 sm:h-48 object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 drop-shadow-[0_0_30px_rgba(255,117,24,0.3)] select-none"
+              />
+            </div>
+            {/* Decoration */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-2/20 rounded-full blur-[40px] -z-10" />
           </motion.div>
 
+          {/* Bio Column */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex-1"
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+            className="lg:col-span-8 flex flex-col justify-center h-full"
           >
-            <h3 className="font-mono text-brand-3 tracking-widest uppercase mb-8 text-lg">
-              Core Tech Stack
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-white mb-6">
+              Hello! I'm John-Tobi.
+            </h2>
+            <div className="space-y-6 text-lg text-gray-400 leading-relaxed font-sans font-light">
+              <p>
+                I am a passionate web developer and designer with over 5 years of experience. I specialize in creating responsive, user-friendly websites and applications that not only look great but also perform exceptionally well.
+              </p>
+              <p>
+                My approach focuses on solid architectural foundations, type safety, and delivering exceptional user experiences across the entire stack. I craft beautiful, functional platforms that drive results.
+              </p>
+              <p>
+                When I'm not coding or pushing pixels, you can find me exploring new technologies, contributing to open-source, or analyzing the latest design theories.
+              </p>
+            </div>
+            
+            <div className="mt-10 flex gap-4">
+              <Link 
+                to="/contact" 
+                className="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-brand-1 hover:text-white transition-colors duration-300 inline-block"
+              >
+                Let's Talk
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Skills & Experience Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          
+          {/* Experience */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-4">
+              <span className="w-8 h-[2px] bg-brand-1" />
+              Experience
             </h3>
-            <div className="flex flex-wrap gap-4">
-              {skills.map((skill, index) => (
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  key={skill.name}
-                  className="px-6 py-4 border border-white/10 rounded-2xl text-white md:text-lg font-medium hover:border-brand-2 hover:bg-secondary/40 hover:-translate-y-1 transition-all flex items-center gap-3 backdrop-blur-sm bg-secondary"
-                >
-                  <skill.icon size={24} className="text-brand-1" />
-                  {skill.name}
-                </motion.span>
+            <div className="space-y-8">
+              {experience.map((exp, i) => (
+                <div key={i} className="relative pl-8 before:absolute before:left-0 before:top-2 before:w-[2px] before:h-full before:bg-white/10 last:before:h-0">
+                  <span className="absolute left-[-4px] top-2 w-[10px] h-[10px] rounded-full bg-brand-2 ring-4 ring-secondary" />
+                  <div className="mb-2">
+                    <span className="text-xs sm:text-sm font-mono text-brand-1 tracking-wider">{exp.period}</span>
+                  </div>
+                  <h4 className="text-xl font-display font-semibold text-white mb-1">{exp.role}</h4>
+                  <p className="text-sm font-medium text-gray-300 mb-3">{exp.company}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">{exp.description}</p>
+                </div>
               ))}
             </div>
           </motion.div>
+
+          {/* Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+          >
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-4">
+              <span className="w-8 h-[2px] bg-brand-2" />
+              Core Skills
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {skills.map((skill, index) => (
+                <div 
+                  key={index}
+                  className="p-4 border border-white/10 rounded-2xl flex items-center gap-4 bg-secondary/50 hover:bg-white/5 hover:border-white/20 transition-all border-l-4 hover:border-l-brand-1 group"
+                >
+                  <div className="p-3 bg-secondary/80 rounded-xl text-brand-2 shadow-inner group-hover:bg-brand-1 group-hover:text-white transition-colors">
+                    {skill.icon}
+                  </div>
+                  <span className="font-medium text-gray-200">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

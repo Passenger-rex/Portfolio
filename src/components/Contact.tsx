@@ -37,7 +37,7 @@ export function Contact() {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex-1 cursor-default text-center lg:text-left"
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter mb-6 md:mb-8 leading-[1.1] flex flex-col items-center lg:items-start">
@@ -52,7 +52,7 @@ export function Contact() {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
           className="flex-1"
         >
           <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:gap-8 bg-secondary p-6 sm:p-8 md:p-12 rounded-3xl border border-white/10">

@@ -13,7 +13,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <span className="text-brand-2 font-mono tracking-widest uppercase mb-4 block text-sm md:text-base">
             Hi, I am
@@ -27,12 +27,11 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
           className="max-w-xl mx-auto md:mx-0 flex flex-col items-center md:items-start"
         >
           <p className="text-lg md:text-2xl text-gray-400 mb-8 md:mb-10 leading-relaxed px-4 md:px-0">
-            I craft polished, scalable full-stack experiences using modern web technologies. 
-            From pixel-perfect frontends to robust backends.
+            Design, Develop, Create something beautiful. I craft polished, scalable full-stack experiences using modern web technologies.
           </p>
 
           <Link 

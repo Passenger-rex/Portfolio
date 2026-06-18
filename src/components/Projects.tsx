@@ -33,7 +33,7 @@ export function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="mb-16 md:mb-20 cursor-default flex flex-col items-center md:items-start text-center md:text-left"
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 flex flex-col md:flex-row gap-2 md:gap-[0.5em] items-center">
@@ -49,7 +49,7 @@ export function Projects() {
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
               className="group relative border border-brand-2/50 md:border-white/10 hover:border-brand-2 p-6 sm:p-8 md:p-12 transition-all rounded-3xl overflow-hidden bg-secondary shadow-[0_0_30px_rgba(255,117,24,0.15)] md:shadow-none hover:shadow-[0_0_30px_rgba(255,117,24,0.2)]"
             >
               {/* Hover glow / Static glow on mobile */}
