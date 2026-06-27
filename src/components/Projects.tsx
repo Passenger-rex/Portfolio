@@ -23,6 +23,13 @@ const projects = [
     link: "https://github.com/Passenger-rex/exam-city.git",
     site: "https://examcity.qzz.io/",
     logo: "https://examcity.qzz.io/apple-touch-icon.png"
+  },
+  {
+    title: "GistWire.ng",
+    description: "Modern news and gist platform providing real-time updates with an elegant reading experience.",
+    link: "https://github.com/Passenger-rex/GistWire.ng.git",
+    site: "https://gistwireng.vercel.app/",
+    logo: "https://gistwireng.vercel.app/favicon.ico"
   }
 ];
 
